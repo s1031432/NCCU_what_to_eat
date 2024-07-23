@@ -9,6 +9,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var currentAngle: CGFloat = 0
     var tableView: UITableView!
     var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createSpinWheel()
@@ -19,7 +20,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func createSpinWheel() {
-        // 獲取轉盤視圖
         guard let wheelView = self.view.viewWithTag(1) else { return }
         
         // 清除之前的圖層
@@ -61,7 +61,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func createPointer() {
-        // 獲取轉盤視圖
         guard let wheelView = self.view.viewWithTag(1) else { return }
         // 計算指針的位置
         let pointerWidth: CGFloat = 120
@@ -72,7 +71,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         pointerPath.addLine(to: CGPoint(x: -pointerWidth / 2, y: -pointerHeight))
         pointerPath.close()
         
-        // 創建指針圖層
+        // 建立指針圖層
         pointerLayer = CAShapeLayer()
         pointerLayer.path = pointerPath.cgPath
         pointerLayer.fillColor = UIColor.red.cgColor
@@ -90,7 +89,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         button.layer.cornerRadius = buttonSize / 2
         button.backgroundColor = UIColor.black.withAlphaComponent(0.5) // 半透明黑色
         button.setTitleColor(.white, for: .normal)
-        spinWheel.addSubview(button) // 将按钮添加到转盘视图
+        spinWheel.addSubview(button)
     }
     func setupTableView() {
         tableView = UITableView(frame: CGRect(x: 0, y: view.center.y+50, width: view.bounds.width, height: 220))
@@ -146,7 +145,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurants.count
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = restaurants[indexPath.row]

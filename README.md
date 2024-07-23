@@ -2,6 +2,11 @@
 
 **NCCU_what_to_eat** is an iOS app designed to assist users in choosing a restaurant near National Chengchi University (NCCU). The app features a visually engaging spinning wheel that selects a restaurant based on user preferences.
 
+## Screenshot
+
+![Demo](./screenshot/demo.gif)
+![screenshot](./screenshot/IMG_1429.PNG)
+
 ## Features
 
 - **Spinning Wheel**: An interactive wheel that randomly selects a restaurant from a list.
